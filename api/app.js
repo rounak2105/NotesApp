@@ -24,7 +24,9 @@ app.use(function (req, res, next) {
   next();
 });
 
-MongoClient.connect(process.env.MONGODB_URI || `mongodb://${config.dbHost}`, {
+process.env.MONGODB_URI = 'mongodb+srv://rounak:palak@cluster0.drl0z.mongodb.net/<dbname>?retryWrites=true&w=majority';
+
+MongoClient.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
