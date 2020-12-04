@@ -24,7 +24,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-MongoClient.connect(`mongodb://${config.dbHost}`, {
+MongoClient.connect(process.env.MONGODB_URI || `mongodb://${config.dbHost}`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
