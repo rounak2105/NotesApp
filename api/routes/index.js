@@ -20,4 +20,11 @@ router.post('/', function(req, res, next){
   .catch(error=>res.send(error));
 });
 
+router.delete('/', (req, res, next)=>{
+  const { uid } = req.body;
+  req.collection.deleteOne({uid})
+  .then(result=>res.json(result))
+  .then(error=>res.send(error));
+})
+
 module.exports = router;
