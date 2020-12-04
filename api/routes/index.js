@@ -3,9 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 
-router.get('/', function(req, res, next) {
+router.get('/:uid', function(req, res, next) {
 
-  const { uid } = req.body;
+  const { uid } = req.params;
   req.collection.find({uid:uid})
   .toArray()
   .then(results => res.json(results))
