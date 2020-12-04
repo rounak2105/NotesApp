@@ -22,7 +22,7 @@ router.post('/', function(req, res, next){
 
 router.delete('/', (req, res, next)=>{
   const { uid } = req.body;
-  req.collection.deleteOne({uid})
+  req.collection.deleteMany({uid})
   .then(result=>res.json(result))
   .then(error=>res.send(error));
 })
