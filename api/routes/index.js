@@ -3,9 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 
-router.get('/:uid', function(req, res, next) {
+router.get('/', function(req, res, next) {
 
-  const { uid } = req.params;
+  const { uid } = req.body;
   req.collection.find({uid:uid})
   .toArray()
   .then(results => res.json(results))
@@ -22,7 +22,7 @@ router.post('/', function(req, res, next){
 
 router.delete('/', (req, res, next)=>{
   const { uid } = req.body;
-  req.collection.deleteMany({uid})
+  req.collection.deleteOne({uid})
   .then(result=>res.json(result))
   .then(error=>res.send(error));
 })
