@@ -72,4 +72,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+const server = app.listen(8081, function() {
+  console.log(new Date().toISOString() + ": server started on port 8081");
+});
+
 module.exports = app;
